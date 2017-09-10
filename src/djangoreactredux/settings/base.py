@@ -24,7 +24,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'knox',
     'django_extensions',
-
+    'content',
     'accounts',
     'base'
 )

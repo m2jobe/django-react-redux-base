@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import { authLogoutAndRedirect } from './actions/auth';
 import './styles/main.scss';
+import tourLogo from './images/tourlogo.png';
 
 class App extends React.Component {
     static propTypes = {
@@ -65,7 +66,10 @@ class App extends React.Component {
                                 <span className="icon-bar" />
                             </button>
                             <a className="navbar-brand" onClick={this.goToIndex}>
-                                Django React Redux Demo
+                              <img className="tour-logo"
+                                  src={tourLogo}
+                                  alt="Tour Monkeys"
+                              />
                             </a>
                         </div>
                         <div className="collapse navbar-collapse" id="top-navbar">
@@ -89,14 +93,14 @@ class App extends React.Component {
                                 </ul>
                                 :
                                 <ul className="nav navbar-nav navbar-right">
-                                    <li className={homeClass}>
+                                    {/*<li className={homeClass}>
                                         <a className="js-go-to-index-button" onClick={this.goToIndex}>
                                             <i className="fa fa-home" /> Home
                                         </a>
-                                    </li>
+                                    </li>*/}
                                     <li className={loginClass}>
                                         <a className="js-login-button" onClick={this.goToLogin}>
-                                            <i className="fa fa-home" /> Login
+                                            <i className="fa  fa-sign-in" /> Login
                                         </a>
                                     </li>
                                 </ul>

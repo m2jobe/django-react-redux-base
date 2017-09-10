@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-modal": "^2.3.2",
+    "react-notifications": "^1.4.3"
+  }
+}

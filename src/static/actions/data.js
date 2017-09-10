@@ -3,7 +3,7 @@ import { push } from 'react-router-redux';
 
 import { SERVER_URL } from '../utils/config';
 import { checkHttpStatus, parseJSON } from '../utils';
-import { DATA_FETCH_PROTECTED_DATA_REQUEST, DATA_RECEIVE_PROTECTED_DATA } from '../constants';
+import { DATA_FETCH_PROTECTED_DATA_REQUEST, DATA_RECEIVE_PROTECTED_DATA, VIDEO_DATA_RECEIVED, BANNER_DATA_RECEIVED } from '../constants';
 import { authLoginUserFailure } from './auth';
 
 
@@ -16,9 +16,33 @@ export function dataReceiveProtectedData(data) {
     };
 }
 
+export function videoDataReceived(data) {
+    return {
+        type: VIDEO_DATA_RECEIVED,
+        payload: {
+            data
+        }
+    };
+}
+
+export function bannersDataReceived(data) {
+    return {
+        type: BANNER_DATA_RECEIVED,
+        payload: {
+            data
+        }
+    };
+}
+
 export function dataFetchProtectedDataRequest() {
     return {
         type: DATA_FETCH_PROTECTED_DATA_REQUEST
+    };
+}
+
+export function notificaton_sent() {
+    return {
+        type: NOTIFICATION_REQUEST_SENT
     };
 }
 
@@ -53,6 +77,75 @@ export function dataFetchProtectedData(token) {
                 }
 
                 dispatch(push('/login'));
+                return Promise.resolve(); // TODO: we need a promise here because of the tests, find a better way
+            });
+    };
+}
+
+export function fetchVideos() {
+    return (dispatch, state) => {
+      return fetch(`${SERVER_URL}/api/v1/content/fetchVideos/`, {
+          method: 'post',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+
+          }
+      })
+            .then(checkHttpStatus)
+            .then(parseJSON)
+            .then((response) => {
+                dispatch(videoDataReceived(response));
+            })
+            .catch((error) => {
+                return Promise.resolve(); // TODO: we need a promise here because of the tests, find a better way
+            });
+    };
+}
+
+
+export function fetchBanners() {
+    return (dispatch, state) => {
+      return fetch(`${SERVER_URL}/api/v1/content/fetchBanners/`, {
+          method: 'post',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+
+          }
+      })
+            .then(checkHttpStatus)
+            .then(parseJSON)
+            .then((response) => {
+                dispatch(bannersDataReceived(response));
+            })
+            .catch((error) => {
+                return Promise.resolve(); // TODO: we need a promise here because of the tests, find a better way
+            });
+    };
+}
+
+export function saveUserNotificationRequest(email,artist) {
+    return (dispatch, state) => {
+        return fetch(`${SERVER_URL}/api/v1/content/saveUserNotificationRequest/`, {
+            credentials: 'include',
+            method: 'post',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({email: email, artist: artist})
+        })
+            .then(checkHttpStatus)
+            .then(parseJSON)
+            .then((response) => {
+              dispatch(notificaton_sent());
+            })
+            .catch((error) => {
+
                 return Promise.resolve(); // TODO: we need a promise here because of the tests, find a better way
             });
     };

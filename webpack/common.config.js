@@ -59,8 +59,8 @@ const common = {
             inject: 'body'
         }),
         new webpack.DefinePlugin({
-            'process.env': { NODE_ENV: TARGET === 'dev' ? '"development"' : '"production"' },
-            '__DEVELOPMENT__': TARGET === 'dev'
+            'process.env': { NODE_ENV: TARGET === 'prod' ? '"development"' : '"production"' },
+            '__DEVELOPMENT__': TARGET === 'prod'
         }),
         new webpack.ProvidePlugin({
             '$': 'jquery',

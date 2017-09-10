@@ -4,4 +4,26 @@
   a {
     text-decoration: none;
   }
+
+  border: none !important;
+}
+
+$colors: #ffc3bb, #fffebb, #bbd6ff, #bbc4ff, #bbffc0;
+
+.navbar-default {
+  background: linear-gradient(to right, #191919,nth($colors, random(length($colors))));
+}
+
+
+.navbar-default {
+    background-color: #191919 !important;
+    border-color: transparent !important;
+    height: 20vh;
+}
+
+
+.navbar-nav {
+    position: absolute !important;
+    top: 30% !important;
+    right: 2% !important;
 }

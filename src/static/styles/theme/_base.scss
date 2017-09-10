@@ -3,4 +3,50 @@ html {
   height: 100%;
   font-size: 100%;
   font-family: $font-family-regular;
+  background: #212121;
+}
+
+body {
+  background-color: #212121 !important;
+}
+
+.tour-logo {
+  max-width: 120px;
+  margin-top: -1vh;
+}
+
+
+.card-img-top {
+  max-width: 300px;
+  margin-bottom: 15px;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-button {
+background: #4CB6F8 !important;
+border-radius: 0px !important;
+text-decoration: none !important;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+
+.tourHR {
+  /* Line 2: */
+opacity: 0.5;
+border: 1px solid #979797;
+box-shadow: 0 2px 15px 15px rgba(97,97,97,0.50);
+}
+
+.js-login-button{
+  font-size: 20px;
+  background: transparent !important;
+  color: white !important;
+}
+
+.card-text {
+  font-size: 16px;
 }

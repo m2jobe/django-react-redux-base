@@ -1,0 +1,4 @@
+#!/home/ubuntu/djr/src/djangoreactredux/djangoreactreduxenv/bin/python3
+
+import dodgy.run
+dodgy.run.run()

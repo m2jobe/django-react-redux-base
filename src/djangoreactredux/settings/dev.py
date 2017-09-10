@@ -7,8 +7,12 @@ PAGE_CACHE_SECONDS = 1
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite'),  # NOQA (ignore all errors on this line)
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'tourmonkeys_db',
+        'USER': 'tourmonkeys',
+        'PASSWORD': 't0urTeam',
+        'HOST': 'tourmonkeysdbinstance.cbjveiv1grwa.us-east-2.rds.amazonaws.com',
+        'PORT': 5432,
     }
 }
 

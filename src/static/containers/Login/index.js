@@ -17,7 +17,7 @@ const Login = t.struct({
 
 const LoginFormOptions = {
     auto: 'placeholders',
-    help: <i>Hint: a@a.com / qw</i>,
+    help: <i>Hint: For Early Access, Subscribe to our <a href="http://tourmonkeys.com">newsletter </a></i>,
     fields: {
         password: {
             type: 'password'
@@ -102,7 +102,7 @@ class LoginView extends React.Component {
 
         return (
             <div className="container login">
-                <h1 className="text-center">Login</h1>
+                <h1 className="text-center">Early Access Login</h1>
                 <div className="login-container margin-top-medium">
                     {statusText}
                     <form onSubmit={this.login}>
