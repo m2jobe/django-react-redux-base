@@ -1,4 +1,4 @@
-#!/Users/muhammedjobe/Documents/tourmonkeys/django-react-redux-base/src/djangoreactreduxenv/bin/python
+#!/home/ubuntu/django-react-redux-base/src/djangoreactredux/djangoreactreduxenv/bin/python
 
 import sys
 import getopt

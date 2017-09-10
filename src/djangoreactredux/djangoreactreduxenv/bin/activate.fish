@@ -36,7 +36,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/muhammedjobe/Documents/tourmonkeys/django-react-redux-base/src/djangoreactreduxenv"
+set -gx VIRTUAL_ENV "/home/ubuntu/django-react-redux-base/src/djangoreactredux/djangoreactreduxenv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
