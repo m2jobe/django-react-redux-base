@@ -219,7 +219,8 @@ class HomeView extends React.Component {
                 <hr className="tourHR"/>
                 <div style={{marginTop: '-10px'}} className="row">
                   <div className="col-md-12 margin-top-medium margin-bottom-large" style={{'zIndex': 0}}>
-                    <div style={videoStyle}><iframe src="https://content.jwplatform.com/players/cP0f4nnS-CSUFB620.html" width="100%" height="100%" frameBorder="0" scrolling="auto" allowFullScreen style={{position:'absolute'}}></iframe></div>
+  
+                    <JWPlayer videoId='BGd2hdiR' />
 
                   </div>
 
