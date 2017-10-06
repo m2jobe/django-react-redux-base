@@ -44,6 +44,9 @@ const customStyles2 = {
   }
 };
 
+var videoStyle = {
+  position:'relative', 'paddingBottom':'56.25%', overflow:'hidden'
+}
 
 class HomeView extends React.Component {
 
@@ -171,14 +174,14 @@ class HomeView extends React.Component {
         if(!this.state.bannerDiv) {
         var banners = this.props.banners.map(function (object) {
             return (
-                  <div className="col-md-4" key={object.id}>
+                  <div className="col-md-6" key={object.id}>
                     <div className="card" >
                       <img className="card-img-top" src={object.image} alt="Card image cap" />
                       <div className="card-block">
                         <h4 className="card-title">{object.artist}</h4>
                         <p className="card-text">Location: {object.location}</p>
-                        <p className="card-text">Date: TBD</p>
-                        <a onClick={() => this.openModal2(object.artist)} className="btn btn-primary card-button">Notify me</a>
+                        <p className="card-text" id={"dateID"+object.id}>Date: TBA</p>
+                        {/*<a onClick={() => this.openModal2(object.artist)} className="btn btn-primary card-button">Notify me</a>*/}
                       </div>
                     </div>
                   </div>
@@ -189,6 +192,8 @@ class HomeView extends React.Component {
         this.setState({bannerDiv: banners})
       }
       }
+      $('#dateID2').text('Playing Now!')
+
     }
 
 
@@ -211,12 +216,17 @@ class HomeView extends React.Component {
 
                   </div>
                 </div>
-                <br/>
                 <hr className="tourHR"/>
-                <br/>
+                <div style={{marginTop: '-10px'}} className="row">
+                  <div className="col-md-12 margin-top-medium margin-bottom-large" style={{'zIndex': 0}}>
+                    <div style={videoStyle}><iframe src="https://content.jwplatform.com/players/cP0f4nnS-CSUFB620.html" width="100%" height="100%" frameBorder="0" scrolling="auto" allowFullScreen style={{position:'absolute'}}></iframe></div>
 
+                  </div>
+
+                </div>
+                <hr className="tourHR"/>
                 <div className="row">
-                  <div className="col-md-12 margin-top-large margin-bottom-large" style={{'zIndex': 0}}>
+                  <div className="col-md-12 margin-top-medium margin-bottom-large" style={{'zIndex': 0}}>
 
                     { this.props.videos ?
                     <OwlCarousel
@@ -251,7 +261,7 @@ onTranslated={(e) => {
                     </OwlCarousel>
                     :
                     null }
-                    <Modal
+                   <Modal
                              isOpen={this.state.modalIsOpen}
                              onAfterOpen={this.afterOpenModal}
                              onRequestClose={this.closeModal}
@@ -264,7 +274,7 @@ onTranslated={(e) => {
                             </div>
                            </Modal>
 
-                    <Modal
+                  {/*   <Modal
                       isOpen={this.state.modalIsOpen2}
                       onAfterOpen={this.afterOpenModal}
                       onRequestClose={this.closeModal}
@@ -279,10 +289,11 @@ onTranslated={(e) => {
                       <button type="submit"  onClick={() => this.saveUserNotificationRequest()}   className="btn btn-primary card-button"> Notify me </button>
                       </div>
                     </form>
-                    </Modal>
+                  </Modal>*/}
                   </div>
                 </div>
 
+                <a href="http://newsletter.tourmonkeys.com/" style={{textAlign:'center', display: 'block'}} className="btn" target="_blank"><i className="fa fa-long-arrow-right"></i> GET EARLY ACCESS</a>
                 <NotificationContainer/>
 
             </div>

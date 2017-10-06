@@ -98,9 +98,9 @@ class App extends React.Component {
                                             <i className="fa fa-home" /> Home
                                         </a>
                                     </li>*/}
-                                    <li className={loginClass}>
-                                        <a className="js-login-button" onClick={this.goToLogin}>
-                                            <i className="fa  fa-sign-in" /> Login
+                                    <li >
+                                        <a className="js-login-button">
+                                            <i className="fa  fa-sign-in" /> Beta
                                         </a>
                                     </li>
                                 </ul>
